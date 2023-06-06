@@ -1,0 +1,52 @@
+{
+  "name": "memorial-book",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.9.3",
+    "@emotion/react": "^11.9.3",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.2.5",
+    "@mui/material": "^5.10.4",
+    "@mui/styles": "^5.3.0",
+    "axios": "^0.25.0",
+    "bcryptjs": "^2.4.3",
+    "browserslist": "^4.21.5",
+    "cloudinary": "^1.37.0",
+    "date-fns": "^2.29.2",
+    "dotenv": "^16.0.3",
+    "formik": "^2.2.9",
+    "mui-color": "^2.0.0-beta.2",
+    "multer": "^1.4.5-lts.1",
+    "next": "^12.1.6",
+    "next-auth": "^4.3.4",
+    "next-pwa": "^5.4.4",
+    "next-share": "^0.13.0",
+    "nodemailer": "^6.7.5",
+    "react": "17.0.2",
+    "react-device-detect": "^2.1.2",
+    "react-dom": "17.0.2",
+    "react-draggable": "^4.4.4",
+    "react-dropzone": "^14.2.3",
+    "react-intl-tel-input": "^8.2.0",
+    "react-paypal-button-v2": "^2.6.3",
+    "react-responsive-carousel": "^3.2.22",
+    "react-select": "^5.2.2",
+    "react-slick": "^0.29.0",
+    "react-spring": "^9.4.3",
+    "simple-react-lightbox": "^3.6.9-0",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.3.5",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "eslint": "8.15.0",
+    "eslint-config-next": "12.0.7"
+  }
+}

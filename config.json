@@ -1,0 +1,22 @@
+{
+    "apps": [
+      {
+        "name": "memoryise",
+        "script": "node_modules/next/dist/bin/next",
+        "cwd": "./",
+        "args": "start",
+        "watch": true,
+        "max_memory_restart": "2G",
+        "exec_mode": "cluster",
+        "instances": 4,
+        "env_development": {
+          "PORT": 3000,
+          "NODE_ENV": "development"
+        },
+        "env_production": {
+          "PORT": 3000,
+          "NODE_ENV": "production"
+        }
+      }
+    ]
+  }
