@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Container, Grid, Typography } from "@mui/material";
+import { Container, Grid, Stack, Typography, Button } from "@mui/material";
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 import { format } from "date-fns";
 import Image from "next/image";
 import { useSpring, animated } from "react-spring";
+import Link from "next/link";
 
 import { SRLWrapper } from "simple-react-lightbox";
 import Head from "next/head";
@@ -57,7 +61,7 @@ function MemorialPage({ data }) {
                   return (
                     <Grid
                       item
-                      md={3}
+                      md={4}
                       xs={12}
                       sm={6}
                       key={d.obituaryId}
@@ -65,7 +69,9 @@ function MemorialPage({ data }) {
                       justifyContent="center"
                     >
                       <animated.div style={props}>
-                        <SRLWrapper>
+                      <Card sx={{ minWidth: 275 }}>
+                      <CardContent>
+                      <SRLWrapper>
                           <Image
                             src={d.imageUrl || "/images/No-Image.png"}
                             width="120"
@@ -78,7 +84,19 @@ function MemorialPage({ data }) {
                         <Typography style={{ fontSize: "10px" }}>
                           Created At: {format(new Date(d.createdAt), "dd MMM yyyy HH:mm:ss")}
                         </Typography>
-                        <a href={`/memories/${d.obituaryId}`}>View</a>
+                      </CardContent>
+                      {/* <CardActions> */}
+                      <Link href={`/memories/${d.obituaryId}`}>
+                          <Button
+                            variant="contained"
+                            color="primary"
+                            sx={{ mt: "5px", mb: "20px" }}
+                            onClick={() => {`/memories/${d.obituaryId}`}}
+                          >View
+                          </Button>
+                          </Link>
+                      {/* </CardActions> */}
+                    </Card>
                       </animated.div>
                     </Grid>
                   );

@@ -12,9 +12,9 @@ function HomePage({ data }) {
   const [openUploader, setOpenUploader] = useState(false);
   const [urls, setUrls] = useState([]);
 
-  useEffect(() => {
-    console.log(urls);
-  }, [urls]);
+  // useEffect(() => {
+  //   console.log(urls);
+  // }, [urls]);
 
   return (
     <React.Fragment>

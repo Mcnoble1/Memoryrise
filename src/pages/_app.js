@@ -27,9 +27,9 @@ export default function MyApp(props) {
   let theme = createTheme({
     palette: {
       primary: {
-        // main: "#556cd6",
+        main: "#0A435D",
         // main: "#873abb",
-        main: primaryColor,
+        // main: primaryColor,
       },
       secondary: {
         // main: "#19857b",

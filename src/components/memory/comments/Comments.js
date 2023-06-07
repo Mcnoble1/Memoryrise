@@ -11,6 +11,7 @@ import Router from "next/router";
 import { format } from "date-fns";
 import Card from "@mui/material/Card";
 import { CustomProgress } from "../../common/CustomProgress";
+import Editor from "../../layout/Editor";
 // import AuthForm from "../../auth/auth-form";
 import NameModal from "../NameModal";
 
@@ -162,15 +163,16 @@ function Comments({ ObituaryID, user, session }) {
           }}
         >
           <Form className={classes.root}>
-            <Grid container className={classes.modal} direction="column" spacing={2}>
-              <Grid item>
+            <Grid className={classes.modal} direction="column" spacing={2}>
+              <Grid item sx={{ mb: "10px"}}>
                 <Textfield name="title" label="Title (optional)" />
               </Grid>
               <Grid item>
-                <Textfield name="message" label="Message" multiline maxRows={10} />
+              <Editor name="message" label="Message"/>
+                {/* <Textfield name="message" label="Message" multiline maxRows={10} /> */}
               </Grid>
               <Grid item container justifyContent="flex-end">
-                <Grid item>
+                <Grid item sx={{ mt: "100px"}}>
                   <Button variant="contained" color="primary">
                     Save
                   </Button>

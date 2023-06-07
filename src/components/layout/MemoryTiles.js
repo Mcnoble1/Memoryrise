@@ -26,7 +26,7 @@ const testimonyMessage = {
 
 function MemoryTiles() {
   return (
-    <Box maxWidth="lg" sx={{ mt: 13, mb: 13 }}>
+    <Box maxWidth="lg" sx={{ ml: 10, mt: 13, mb: 13 }}>
       <Box maxWidth="lg" direction="row" align="center">
         <Box spacing={5} align="center" justify="center">
           <Slider {...settings}>

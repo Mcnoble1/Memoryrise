@@ -57,6 +57,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Paper from "@mui/material/Paper";
 import Draggable from "react-draggable";
 import Copyright from "../../components/layout/Copyright";
+import Editor from "../../components/layout/Editor";
 import Image from "next/image";
 import { Photos } from "../../components/memory/gallery/Photos";
 import { Videos } from "../../components/memory/gallery/Videos";
@@ -398,7 +399,6 @@ const Test = ({ data, session, baseUrl }) => {
           container
           spacing={2}
           justifyContent="space-between"
-          // sx={{ backgroundImage: backgroundImage }}
         >
           <Grid item m>
             <Image
@@ -544,24 +544,22 @@ const Test = ({ data, session, baseUrl }) => {
                 </Grid>
 
                 {/* Add a tribute */}
-                <Grid item container md={12} sx={{ mt: 3 }}>
-                  <Card sx={{ width: "100%" }}>
+                <Grid item container sx={{ mt: 3 }}>
+                  <Card>
                     <CardContent>
                       <Typography variant="h5">Leave a Tribute</Typography>
-                      <Grid item>
-                        <TextField
-                          multiline
-                          maxRows={4}
-                          value={tribute}
-                          onChange={(e) => setTribute(e.target.value)}
-                          fullWidth
+                      <Grid item m >
+                        <Editor
+                        value={tribute}
+                        onChange={(e) => setTribute(e.target.value)}
+                        fullWidth
                         />
                       </Grid>
                       <Grid item sx={{ mt: "30px" }}>
                         <Button
                           variant="contained"
-                          color="secondary"
-                          sx={{ float: "right", mb: "20px" }}
+                          color="primary"
+                          sx={{ float: "right", mt: "30px", mb: "20px" }}
                           onClick={saveTribute}
                         >
                           Save
