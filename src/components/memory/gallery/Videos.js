@@ -47,7 +47,7 @@ const options = {
   croppingAspectRatio: 1,
   croppingShowDimensions: true,
   resourceType: "video",
-  // clientAllowedFormats: ["mp4", "3gp", "avi", "mkv", "wmv"],
+  clientAllowedFormats: ["mp4", "3gp", "avi", "mkv", "wmv"],
   thumbnails: false,
   // maxFileSize: 5000000,
 };
@@ -116,37 +116,37 @@ export const Videos = ({ ObituaryID, user, session, showProgress, setShowProgres
     return data;
   }
 
-  // function openUploadWidget() {
-  //   if (!session && !fullName) {
-  //     // setOpenLogin(true);
-  //     setOpenName(true);
-  //     return false;
-  //   }
+  function openUploadWidget() {
+    if (!session && !fullName) {
+      // setOpenLogin(true);
+      setOpenName(true);
+      return false;
+    }
 
-  //   const options = {
-  //     cloudName: "daz2tnj01",
-  //     uploadPreset: "ushy38z7",
-  //     folder: "memorials",
-  //     cropping: "server",
-  //     croppingAspectRatio: 1,
-  //     croppingShowDimensions: true,
-  //     resourceType: "video",
-  //     // clientAllowedFormats: ["mp4", "3gp", "avi", "mkv", "wmv"],
-  //     thumbnails: false,
-  //     maxFileSize: 5000000,
-  //   };
+    // const options = {
+    //   cloudName: "daz2tnj01",
+    //   uploadPreset: "ushy38z7",
+    //   folder: "memorials",
+    //   cropping: "server",
+    //   croppingAspectRatio: 1,
+    //   croppingShowDimensions: true,
+    //   resourceType: "video",
+    //   // clientAllowedFormats: ["mp4", "3gp", "avi", "mkv", "wmv"],
+    //   thumbnails: false,
+    //   maxFileSize: 5000000,
+    // };
 
-  //   CloudinaryUploadFunc(options, (error, result) => {
-  //     if (!error) {
-  //       const { event, info } = result;
-  //       if (event === "success") {
-  //         SaveUploadedMemorialVideos(info.secure_url);
-  //       }
-  //     } else {
-  //       console.log(error);
-  //     }
-  //   });
-  // }
+    CloudinaryUploadFunc(options, (error, result) => {
+      if (!error) {
+        const { event, info } = result;
+        if (event === "success") {
+          SaveUploadedMemorialVideos(info.secure_url);
+        }
+      } else {
+        console.log(error);
+      }
+    });
+  }
 
   const callback = (error, result) => {
     if (!error) {
@@ -248,28 +248,11 @@ export const Videos = ({ ObituaryID, user, session, showProgress, setShowProgres
         <Grid item container justifyContent="flex-end">
           <Grid item>
             <IconButton>
-              <Tooltip title="Add video(s)">
-                {/* <Button variant="contained" onClick={openUploadWidget} color="primary">
-                  Add video(s)
-                </Button> */}
-                {/* <CloudinaryUploadWidget
+                <CloudinaryUploadWidget
                   options={options}
                   callback={callback}
                   title={"Add video(s)"}
-                /> */}
-                <React.Fragment>
-                  <Button variant="contained" color="primary" onClick={() => setOpenUploader(true)}>
-                    Add videos(s)
-                  </Button>
-                  <Uploader
-                    openUploader={openUploader}
-                    setOpenUploader={setOpenUploader}
-                    saveMedia={SaveUploadedMemorialVideos}
-                    folder={"memorials"}
-                    source={"videos"}
-                  />
-                </React.Fragment>
-              </Tooltip>
+                />
             </IconButton>
           </Grid>
         </Grid>

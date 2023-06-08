@@ -16,6 +16,7 @@ import Copyright from "../components/layout/Copyright";
 import MuiAlert from "@mui/material/Alert";
 import CloudinaryUploadWidget from "../components/cloudinary/CloudinaryUploadWidget";
 import Uploader from "../components/drop-zone/uploader";
+import Editor from "../components/layout/Editor";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -312,7 +313,8 @@ function MemoryPage({ session }) {
                   </Grid>
 
                   <Grid item md={12}>
-                    <Textfield size="small" multiline maxRows={10} name="message" label="Life" />
+                    {/* <Textfield size="small" multiline maxRows={10} name="message" label="Life" /> */}
+                    <Editor name="message" label="Life" />
                   </Grid>
                   <Grid item md={12} sx={{ display: "none" }}>
                     <Textfield size="small" name="webAddress" label="Web Address" />

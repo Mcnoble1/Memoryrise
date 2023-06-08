@@ -76,11 +76,11 @@ const options = {
   croppingAspectRatio: 1,
   croppingShowDimensions: true,
   resourceType: "image",
-  // clientAllowedFormats={["png", "gif", "jpeg"]}
+  clientAllowedFormats: ["png", "gif", "jpeg"],
   thumbnails: false,
-  // maxFileSize: 5000000,
-  // maxImageWidth: 1200,
-  // maxImageHeight: 1200,
+  maxFileSize: 5000000,
+  maxImageWidth: 1200,
+  maxImageHeight: 1200,
   minImageWidth: 100,
   minImageHeight: 100,
 };
@@ -179,41 +179,24 @@ export const Photos = ({ ObituaryID, user, session, showProgress, setShowProgres
     setOpenSlideShow(false);
   }
 
-  // function openUploadWidget() {
-  //   if (!session && !fullName) {
-  //     // setOpenLogin(true);
-  //     setOpenName(true);
-  //     return false;
-  //   }
+  function openUploadWidget() {
+    if (!session && !fullName) {
+      // setOpenLogin(true);
+      setOpenName(true);
+      return false;
+    }
 
-  //   const options = {
-  //     cloudName: "daz2tnj01",
-  //     uploadPreset: "ushy38z7",
-  //     folder: "memorials",
-  //     cropping: "server",
-  //     croppingAspectRatio: 1,
-  //     croppingShowDimensions: true,
-  //     resourceType: "image",
-  //     // clientAllowedFormats={["png", "gif", "jpeg"]}
-  //     thumbnails: false,
-  //     maxFileSize: 2000000,
-  //     maxImageWidth: 1200,
-  //     maxImageHeight: 1200,
-  //     minImageWidth: 500,
-  //     minImageHeight: 500,
-  //   };
-
-  //   CloudinaryUploadFunc(options, (error, result) => {
-  //     if (!error) {
-  //       const { event, info } = result;
-  //       if (event === "success") {
-  //         SaveUploadedMemorialImages(info.secure_url);
-  //       }
-  //     } else {
-  //       console.log(error);
-  //     }
-  //   });
-  // }
+    CloudinaryUploadFunc(options, (error, result) => {
+      if (!error) {
+        const { event, info } = result;
+        if (event === "success") {
+          SaveUploadedMemorialImages(info.secure_url);
+        }
+      } else {
+        console.log(error);
+      }
+    });
+  }
 
   const callback = (error, result) => {
     if (!error) {
@@ -323,20 +306,17 @@ export const Photos = ({ ObituaryID, user, session, showProgress, setShowProgres
           ) : undefined} */}
 
           <Grid item>
-            {/* <IconButton>
-              <Button
-                variant="contained"
-                onClick={openUploadWidget}
-                color="primary"
-                disabled={maxImages}
-              >
-                Add photo(s)
-              </Button>
-            </IconButton> */}
+           <IconButton>
+              <CloudinaryUploadWidget
+              options={options}
+              callback={callback}
+              title={"Add Photo(s)"}
+            />
+          </IconButton>
 
-            {/* <CloudinaryUploadWidget options={options} callback={callback} title={"Add photo(s)"} /> */}
+             {/* <CloudinaryUploadWidget options={options} callback={callback} title={"Add photo(s)"} /> */}
 
-            <Button variant="contained" color="primary" onClick={() => setOpenUploader(true)}>
+            {/* <Button variant="contained" color="primary" onClick={() => setOpenUploader(true)}>
               Add photo(s)
             </Button>
             <Uploader
@@ -345,7 +325,7 @@ export const Photos = ({ ObituaryID, user, session, showProgress, setShowProgres
               saveMedia={SaveUploadedMemorialImages}
               folder={"memorials"}
               source={"images"}
-            />
+            /> */}
 
             {/* <TextField type="file" onChange={handleFileSelect} />
             <Button onClick={handleUpload}>Add Photo(s)</Button> */}

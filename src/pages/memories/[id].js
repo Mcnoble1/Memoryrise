@@ -559,7 +559,7 @@ const Test = ({ data, session, baseUrl }) => {
                         <Button
                           variant="contained"
                           color="primary"
-                          sx={{ float: "right", mt: "30px", mb: "20px" }}
+                          sx={{ float: "right", mt: "50px", mb: "20px" }}
                           onClick={saveTribute}
                         >
                           Save

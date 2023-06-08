@@ -49,7 +49,7 @@ const options = {
   resourceType: "raw",
   clientAllowedFormats: ["mp3", "wav", "aac", "amr", "ogg", "aiff", "m4a", "flac", "opus"],
   thumbnails: false,
-  // maxFileSize: 5000000,
+  maxFileSize: 5000000,
 };
 
 export const Audios = ({ ObituaryID, user, session, showProgress, setShowProgress }) => {
@@ -116,37 +116,37 @@ export const Audios = ({ ObituaryID, user, session, showProgress, setShowProgres
     return data;
   }
 
-  // function openUploadWidget() {
-  //   if (!session && !fullName) {
-  //     // setOpenLogin(true);
-  //     setOpenName(true);
-  //     return false;
-  //   }
+  function openUploadWidget() {
+    if (!session && !fullName) {
+      // setOpenLogin(true);
+      setOpenName(true);
+      return false;
+    }
 
-  //   const options = {
-  //     cloudName: "daz2tnj01",
-  //     uploadPreset: "ushy38z7",
-  //     folder: "memorials",
-  //     cropping: "server",
-  //     croppingAspectRatio: 1,
-  //     croppingShowDimensions: true,
-  //     resourceType: "raw",
-  //     clientAllowedFormats: ["mp3", "wav", "aac", "amr", "ogg", "aiff", "m4a", "flac", "opus"],
-  //     thumbnails: false,
-  //     maxFileSize: 5000000,
-  //   };
+    const options = {
+      cloudName: "daz2tnj01",
+      uploadPreset: "ushy38z7",
+      folder: "memorials",
+      cropping: "server",
+      croppingAspectRatio: 1,
+      croppingShowDimensions: true,
+      resourceType: "raw",
+      clientAllowedFormats: ["mp3", "wav", "aac", "amr", "ogg", "aiff", "m4a", "flac", "opus"],
+      thumbnails: false,
+      maxFileSize: 5000000,
+    };
 
-  //   CloudinaryUploadFunc(options, (error, result) => {
-  //     if (!error) {
-  //       const { event, info } = result;
-  //       if (event === "success") {
-  //         SaveUploadedMemorialAudios(info.secure_url);
-  //       }
-  //     } else {
-  //       console.log(error);
-  //     }
-  //   });
-  // }
+    CloudinaryUploadFunc(options, (error, result) => {
+      if (!error) {
+        const { event, info } = result;
+        if (event === "success") {
+          SaveUploadedMemorialAudios(info.secure_url);
+        }
+      } else {
+        console.log(error);
+      }
+    });
+  }
 
   const callback = (error, result) => {
     if (!error) {
@@ -248,29 +248,12 @@ export const Audios = ({ ObituaryID, user, session, showProgress, setShowProgres
         <Grid item container justifyContent="flex-end">
           <Grid item>
             <IconButton>
-              <Tooltip title="Add audio(s)">
-                {/* <Button variant="contained" onClick={openUploadWidget} color="primary">
-                  Add audio(s)
-                </Button> */}
-                {/* <CloudinaryUploadWidget
-                  options={options}
-                  callback={callback}
-                  title={"Add audio(s)"}
-                /> */}
-                <React.Fragment>
-                  <Button variant="contained" color="primary" onClick={() => setOpenUploader(true)}>
-                    Add audio(s)
-                  </Button>
-                  <Uploader
-                    openUploader={openUploader}
-                    setOpenUploader={setOpenUploader}
-                    saveMedia={SaveUploadedMemorialAudios}
-                    folder={"memorials"}
-                    source={"audios"}
-                  />
-                </React.Fragment>
-              </Tooltip>
-            </IconButton>
+              <CloudinaryUploadWidget
+              options={options}
+              callback={callback}
+              title={"Add Audio(s)"}
+            />
+          </IconButton>
           </Grid>
         </Grid>
         <Grid item container spacing={1}>
